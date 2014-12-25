@@ -41,4 +41,4 @@ gem 'mechanize'
 gem 'nokogiri'
 gem 'watir', '~>4.0'
 gem 'watir-webdriver'
-gem "selenium-webdriver", "~> 2.39.0"
+gem "selenium-webdriver", "~> 2.43.0"

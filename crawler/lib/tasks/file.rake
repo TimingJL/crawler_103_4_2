@@ -3,7 +3,7 @@
 desc "file"
 task :file => :environment do
 	 #從檔案開啟
-    File.open("/Users/teinakayuu/Desktop/projects/input2.txt","r").each_line do |line|	
+    File.open("/Users/teinakayuu/Desktop/projects/input.txt","r").each_line do |line|	
 	#input
     #第一行公司行號 第二行年度 第三行季 第四行公司名稱
     array = line.split(' ')

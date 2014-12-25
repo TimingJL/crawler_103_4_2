@@ -6,8 +6,8 @@ task :time => :environment do
 profile = Selenium::WebDriver::Firefox::Profile.new
 browser = Watir::Browser.new :firefox, :profile => profile
 browser.goto 'http://mops.twse.com.tw/mops/web/t57sb01_q1'
-	#從檔案開啟
-    File.open("/Users/teinakayuu/Desktop/projects/input2.txt","r").each_line do |line|	
+	#從檔案開啟 http://mops.twse.com.tw/mops/web/t57sb01_q1
+    File.open("/Users/teinakayuu/Desktop/projects/input.txt","r").each_line do |line|	
     
     #input
     #第一行公司行號 第二行年度 第三行公司名稱
@@ -21,7 +21,7 @@ browser.goto 'http://mops.twse.com.tw/mops/web/t57sb01_q1'
     season = '4'
     
     # Enter
-	browser.input(:onclick => "showsh2('quicksearch9','showTable9');document.form1.step.value='4';action='/mops/web/ajax_quickpgm';ajax1(this.form,'quicksearch9');").click
+	#browser.input(:onclick => "showsh2('quicksearch9','showTable9');document.form1.step.value='4';action='/mops/web/ajax_quickpgm';ajax1(this.form,'quicksearch9');").click
 	browser.input(:value => " 搜尋 ").click
 	#開新頁面必做
 	sleep 10
@@ -55,7 +55,7 @@ browser.goto 'http://mops.twse.com.tw/mops/web/t57sb01_q1'
 					end
 
 					#拿到時間
-					browser.tds.each do |td| 	
+					browser.td.each do |td| 	
 						if td.align == 'cetern' 
 							count2 = count2 + 1
 						end
@@ -139,7 +139,7 @@ browser.goto 'http://mops.twse.com.tw/mops/web/t57sb01_q1'
 	end
 	end	
 	#建立檔案
-	   path = "/Users/teinakayuu/Desktop/projects/crawler/download/#{target_dir}/file_time"
+	   path = "/Users/teinakayuu/Desktop/projects/crawler_103_4_2/crawler/download/#{target_dir}/file_time"
   		dir = File.dirname(path)
 
   		unless File.directory?(dir)
@@ -147,7 +147,7 @@ browser.goto 'http://mops.twse.com.tw/mops/web/t57sb01_q1'
   		end
 
   	#存公司	
-	File.open("/Users/teinakayuu/Desktop/projects/crawler/download-2/file_time.txt",'a') do |f2|
+	File.open("/Users/teinakayuu/Desktop/projects/crawler_103_4_2/crawler/download-2/file_time.txt",'a') do |f2|
 		f2.puts array[3]
 		for i in 1..fnum 
 			f2.puts "#{filename[i]}" + ' ' + "#{time[i]}"
